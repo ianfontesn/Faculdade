@@ -646,6 +646,7 @@ public class Game
                     Scanner in = new Scanner(System.in);
                     System.out.println("Amount to take: ");
                     Integer amountToPut = in.nextInt();
+                    in.close();
                     Integer amountOnRoom = currentRoom.getItemOfRoom(key).getItemAmountOnRoom();
 
                     if (amountToPut < 0)
@@ -733,6 +734,7 @@ public class Game
                 Integer amount = player.getBackpackItem(key).getItemAmountOnBackpack();
                 System.out.println("Amount to drop: ");
                 Integer amountToRemove = in.nextInt();
+                in.close();
 
                 if (amountToRemove < 0)
                 {
@@ -813,6 +815,7 @@ public class Game
                     System.out.println("Enter the direction of door to use the key: ");
                     Scanner in = new Scanner(System.in);
                     String direction = in.next();
+                    in.close();
 
                     if (player.getCurrentRoom().getExit(direction) != null && player.getCurrentRoom().getExit(direction).getNeedKey())  // if room to go is != null
                     {                                                                                                                    // and need use a ket
@@ -913,7 +916,6 @@ public class Game
                             player.getCurrentRoom().removeItemFromRoom(key);
                         }
                     }
-
                 }
             }
         }
@@ -947,7 +949,6 @@ public class Game
             {
                 idx--;
             }
-
             roomsCollection.get(idx).setItemsOnRoom(piece, keyPieces.get(piece));
             roomsCollection.get(idx).getItemOfRoom(piece).setItemAmountOnRoom(1);
         }
